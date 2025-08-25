@@ -1,0 +1,32 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table CSE(
+sid int,
+sname varchar(30),
+smark int);
+show tables;
+desc CSE;
+select *from CSE;
+create table ECE(
+sid int,
+sname varchar(20),
+smark int);
+show tables;
+insert into cse  (sid,sname,smark) values
+(1, 'Naruto', 55),
+(2, 'Zenitsu',85),
+(3, ' asta', 10);
+select *from cse;
+Alter table cse add(semail varchar(20));
+use sathyabama;
+UPDATE cse SET smark=100 WHERE sid=1;
+select* from cse;
+Alter table cse drop column semail;
+update cse SET smark=99, sname='tanjiro' WHERE sid=3;
+update cse set smark = smark-1;
+start transaction;
+savepoint A;
+update cse set smark= smark -2;
+savepoint B;
+rollback to A;

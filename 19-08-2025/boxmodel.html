@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model Demonstration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .controls {
+      margin-bottom: 30px;
+    }
+
+    .controls label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .outer-square {
+      width: 300px;
+      height: 300px;
+      background-color: #cce5ff;
+      padding: 20px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .inner-square {
+      width: 100%;
+      height: 100%;
+      background-color: #004085;
+      margin: 0px;
+      border: 2px solid #001f3f;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+    
+  <h2>CSS Box Model Demonstration</h2>
+
+  <div class="controls">
+    <label>
+      Padding (Outer Square):
+      <input type="range" min="0" max="100" value="20" id="paddingSlider">
+      <span id="paddingValue">20</span>px
+    </label>
+    <label>
+      Margin (Inner Square):
+      <input type="range" min="0" max="100" value="0" id="marginSlider">
+      <span id="marginValue">0</span>px
+    </label>
+    <label>
+      Border (Inner Square):
+      <input type="range" min="0" max="20" value="0" id="borderSlider">
+      <span id="borderValue">0</span>px
+    </label>
+  </div>
+
+  <div class="outer-square" id="outerSquare">
+    <div class="inner-square" id="innerSquare">
+        <h1>
+            center
+        </h1>
+    </div>
+  </div>
+
+  <script>
+    const paddingSlider = document.getElementById('paddingSlider');
+    const marginSlider = document.getElementById('marginSlider');
+    const borderSlider = document.getElementById('borderSlider');
+
+    const paddingValue = document.getElementById('paddingValue');
+    const marginValue = document.getElementById('marginValue');
+    const borderValue = document.getElementById('borderValue');
+
+    const outerSquare = document.getElementById('outerSquare');
+    const innerSquare = document.getElementById('innerSquare');
+
+    paddingSlider.addEventListener('input', () => {
+      const value = paddingSlider.value;
+      outerSquare.style.padding = `${value}px`;
+      paddingValue.textContent = value;
+    });
+
+    marginSlider.addEventListener('input', () => {
+      const value = marginSlider.value;
+      innerSquare.style.margin = `${value}px`;
+      marginValue.textContent = value;
+    });
+
+    borderSlider.addEventListener('input', () => {
+      const value = borderSlider.value;
+      innerSquare.style.borderWidth = `${value}px`;
+      borderValue.textContent = value;
+    });
+  </script>
+</body>
+</html>

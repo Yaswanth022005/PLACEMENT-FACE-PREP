@@ -1,0 +1,19 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table CSE(
+sid int,
+sname varchar(30),
+smark int);
+show tables;
+desc CSE;
+select *from CSE;
+create table ECE(
+sid int,
+sname varchar(20),
+smark int);
+show tables;
+insert into cse  (sid,sname,smark) values
+(1, 'Naruto', 55),
+(2, 'Zenitsu',85),
+(3, ' asta', 10);
